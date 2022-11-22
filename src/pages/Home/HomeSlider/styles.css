@@ -1,0 +1,9 @@
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 35px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fff;
+}
