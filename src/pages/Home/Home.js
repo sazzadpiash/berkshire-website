@@ -1,13 +1,12 @@
 import React from 'react';
+import Categories from '../../components/Categories/Categories';
 import HomeSlider from './HomeSlider/HomeSlider';
 
 const Home = () => {
     return (
         <div>
            <HomeSlider></HomeSlider>
-           <p className='mt-10 bg-red-100'>
-            hello
-           </p>
+           <Categories></Categories>
         </div>
     );
 };
