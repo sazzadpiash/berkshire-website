@@ -1,0 +1,12 @@
+.category-tabs>ul {
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+/* .category-tabs>ul>.react-tabs__tab--selected {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0);
+} */
+
+.react-tabs__tab--selected {
+    border: none;
+    border-bottom: 1px solid #000;
+}
