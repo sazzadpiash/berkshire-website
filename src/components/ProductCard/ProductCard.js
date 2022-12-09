@@ -19,9 +19,9 @@ const ProductCard = ({ product }) => {
                         product?.images.slice(0, 5).map(thumbImg => <img key={thumbImg?.id} src={thumbImg?.src} className='max-w-12 max-h-12' alt='thumb-img' />)
                     }
                 </div>
-                <h2 className="card-title text-lg font-bold justify-between items-center gap-4">{product.name}
+                <h2 className="card-title text-lg font-bold justify-between items-center gap-4">{product?.name}
                 </h2>
-                <span className='text-sm font-normal text-sm flex justify-between items-center'>{product.categories[0].name}<span className='text-primary font-bold text-xl'>{product?.regular_price}$</span></span>
+                <span className='font-normal text-sm flex justify-between items-center'>{product?.categories[0].name}<span className='text-primary font-bold text-xl'>{product?.regular_price}$</span></span>
                 <div className="card-actions justify-end grow items-end">
                     <p className='flex gap-1 py-2'><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar></p>
                     <button className="btn-custom">Buy Now</button>
