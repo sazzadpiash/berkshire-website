@@ -1,6 +1,6 @@
 import React from 'react';
-import Categories from '../../components/Categories/Categories';
 import ProductCard from '../../components/ProductCard/ProductCard';
+import Categories from '../Categories/Categories';
 import HomeSlider from './HomeSlider/HomeSlider';
 
 const Home = () => {

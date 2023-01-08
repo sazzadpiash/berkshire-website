@@ -38,15 +38,16 @@ const Header = () => {
             </div>
             <div className="bottom-header bg-primary text-white py-2">
                 <ul className='flex justify-evenly max-w-7xl mx-auto'>
-                    <li>Home</li>
-                    <li>Categories</li>
-                    <li>Top Categores</li>
+                    <Link to='/'><li>Home</li></Link>
+                    <Link to='/brands/430'><li>Brands</li></Link>
+                    <Link to='/furniture/466'><li>Furniture</li></Link>
+                    {/* <li>Top Categores</li>
                     <li>Bed</li>
                     <li>Chair</li>
                     <li>Table</li>
                     <li>Stand</li>
                     <li>Music</li>
-                    <li>Bar</li>
+                    <li>Bar</li> */}
                     <Link to='/test'><li>Test</li></Link>
                 </ul>
             </div>
