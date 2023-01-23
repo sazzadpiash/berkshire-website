@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../components/ProductCard/ProductCard';
+import RoomsCategoryInner from '../components/Furniture/RoomsCategoryInner';
 
 const Test = () => {
     // const [wcProducts, setWcProducts] = useState();
     const [mongoProducts, setMongoProducts] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/all-products')
+        fetch(`https://berkshire-furniture.vercel.app/categories/0`)
         .then(res=>res.json())
         .then(data=>setMongoProducts(data))
     },[])
@@ -14,7 +14,7 @@ const Test = () => {
     return (
         <div className='grid grid-cols-4 gap-5'>
             {
-                mongoProducts.map(product=><ProductCard key={product?.wcId} product={product}></ProductCard>)
+                mongoProducts.map(category => <RoomsCategoryInner category={category}></RoomsCategoryInner>)
             }
         </div>
     );

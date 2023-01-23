@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/berkshire-furniture-logo.png';
-import { RiShoppingCart2Fill } from 'react-icons/ri';
 import { FaUser } from 'react-icons/fa';
 import { FiHeart } from 'react-icons/fi';
+import { BsCart3 } from 'react-icons/bs';
 
 const Header = () => {
     return (
         <header>
-            <div className="top-header max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div className="top-header max-w-7xl mx-auto py-3 flex justify-between items-center">
                 <div className="logo">
                     <Link to='/'><img className='w-36' src={logo} alt="" /></Link>
                 </div>
-                <div className="searchbar w-1/2">
+                <div className="searchbar w-2/5">
                     <div className="form-control">
                         <div className="input-group">
                             <input type="text" id='searchBar' placeholder="Search…" className="input px-3 h-10 input-bordered w-full" />
@@ -24,23 +24,29 @@ const Header = () => {
                 </div>
                 <div>
                     <ul className='flex items-center'>
-                        <li className='flex items-center gap-1 mr-4'><FaUser className='text-primary'></FaUser><span>My Account</span></li>
-                        <li className='indicator mr-4'>
-                            <FiHeart className='text-primary text-xl'></FiHeart>
-                            <span className="indicator-item indicator-top indicator-end badge badge-sm px-[4px] text-white">9</span>
-                        </li>
-                        <li className='indicator mr-3'>
-                            <RiShoppingCart2Fill className="text-primary text-2xl"></RiShoppingCart2Fill>
-                            <span className="indicator-item indicator-top indicator-end badge badge-sm px-[4px] text-white">9</span>
-                        </li>
+                        <li className='flex items-center gap-1 mr-3'><Link to='/login' className='flex items-center gap-2'><FaUser className='text-primary'></FaUser><span>My Account</span></Link></li>
+                        <button className='border border-gray-400 p-2 flex gap-1 mr-3'>
+                            <FiHeart className='text-primary w-[20px] h-[20px]'></FiHeart>
+                            <span className='text-sm rounded-1'>
+                                Wishlist (0)
+                            </span>
+                        </button>
+                        <Link to='/cart' className='border border-gray-400 p-2 flex gap-1'>
+                            <BsCart3 className='text-primary w-[20px] h-[20px]'></BsCart3>
+                            <span className='text-sm rounded-1'>
+                                Cart (1)
+                            </span>
+                        </Link>
+                        
                     </ul>
                 </div>
             </div>
             <div className="bottom-header bg-primary text-white py-2">
-                <ul className='flex justify-evenly max-w-7xl mx-auto'>
+                <ul className='flex justify-start gap-10 max-w-7xl mx-auto'>
                     <Link to='/'><li>Home</li></Link>
                     <Link to='/brands/430'><li>Brands</li></Link>
                     <Link to='/furniture/466'><li>Furniture</li></Link>
+                    <Link to='/furniture/room/products/493'><li>Sale</li></Link>
                     {/* <li>Top Categores</li>
                     <li>Bed</li>
                     <li>Chair</li>

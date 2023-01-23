@@ -7,14 +7,13 @@ const ProductPage = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`)
+        fetch(`https://berkshire-furniture.vercel.app/products/${id}/${null}`)
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [id])
     return (
-        <div>
-            this is category page
-            <div className='grid grid-cols-4 gap-5'>
+        <div className='max-w-7xl mx-auto py-10'>
+            <div className={`grid grid-cols-4 gap-10`}>
                 {
                     categories.map(product=><ProductCard key={product?.wcId} product={product}></ProductCard>)
                 }

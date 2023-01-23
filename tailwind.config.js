@@ -23,7 +23,7 @@ module.exports = {
 
           "primarylight": "#f1f2ff",
 
-          "neutral": "#3D4451",
+          "neutral": "#000",
 
           "base-100": "#FFFFFF",
 

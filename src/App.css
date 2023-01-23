@@ -1,3 +1,6 @@
+/* Common Css Here */
+
+/* Buy Now Button */
 .btn-custom {
   background-color: transparent;
   color: hsl(var(--p));
@@ -24,4 +27,26 @@
 
 .btn-custom:hover::after {
   width: 100%;
+}
+
+/* Single Product Page Product Description */
+.collapse-title,
+:where(.collapse > input[type="checkbox"]) {
+  min-height: 0px !important;
+}
+
+.collapse-plus .collapse-title:after {
+  top: 0.8rem;
+}
+
+/* Single Product Page Button */
+.singleProductpage-Btn .btn {
+  color: #fff;
+}
+
+/* product page slider */
+.image-gallery-left-nav .image-gallery-svg,
+.image-gallery-right-nav .image-gallery-svg {
+  height: 40px;
+  width: 60px;
 }

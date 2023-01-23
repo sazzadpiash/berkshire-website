@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Rooms from './Rooms';
 import RoomsCategoryInner from './RoomsCategoryInner';
 
 const RoomsCategory = () => {
@@ -8,14 +7,13 @@ const RoomsCategory = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/categories/${id}`)
+        fetch(`https://berkshire-furniture.vercel.app/categories/${id}`)
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [id])
     return (
-        <div>
-            this is category page 2
-            <div className='grid grid-cols-4 gap-5'>
+        <div className='max-w-7xl mx-auto py-10'>
+            <div className='grid grid-cols-5 gap-5'>
                 {
                     categories.map(category => <RoomsCategoryInner category={category}></RoomsCategoryInner>)
                 }
