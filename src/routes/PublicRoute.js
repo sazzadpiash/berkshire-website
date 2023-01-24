@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Handstone from "../Brands/Handstone/Handstone";
+import AboutUs from "../components/AboutUs/AboutUs";
+import ContactUs from "../components/ContactUs/ContactUs";
 import Furniture from "../components/Furniture/Furniture";
 import RoomsCategory from "../components/Furniture/RoomsCategory";
+import OrderInformation from "../components/OrderInformation/OrderInformation";
 import ProductPage from "../components/ProductPage/ProductPage";
 import Main from "../layout/Main";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
-import Contact from "../pages/Contact/Contact";
 import Home from "../pages/Home/Home";
+import InformationCenter from "../pages/InformationCenter/InformationCenter";
 import Login from "../pages/LoginRegister/Login";
 import SingleProduct from "../pages/Singleproduct/SingleProduct";
 import Test from "../test/Test";
@@ -22,8 +25,22 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/contact-us',
-                element: <Contact></Contact>
+                path: '/information-center',
+                element: <InformationCenter></InformationCenter>,
+                children: [
+                    {
+                        path: '/information-center',
+                        element: <AboutUs></AboutUs>
+                    },
+                    {
+                        path: '/information-center/contact-us',
+                        element: <ContactUs></ContactUs>
+                    },
+                    {
+                        path: '/information-center/order-information',
+                        element: <OrderInformation></OrderInformation>
+                    },
+                ]
             },
             {
                 path: '/login',
