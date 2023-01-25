@@ -6,6 +6,7 @@ import Furniture from "../components/Furniture/Furniture";
 import RoomsCategory from "../components/Furniture/RoomsCategory";
 import OrderInformation from "../components/OrderInformation/OrderInformation";
 import ProductPage from "../components/ProductPage/ProductPage";
+import ShippingInfo from "../components/ShippingInfo/ShippingInfo";
 import Main from "../layout/Main";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
                     {
                         path: '/information-center/order-information',
                         element: <OrderInformation></OrderInformation>
+                    },
+                    {
+                        path: '/information-center/shipping-information',
+                        element: <ShippingInfo></ShippingInfo>
                     },
                 ]
             },

@@ -47,6 +47,7 @@ const Header = () => {
                     <Link to='/brands/430'><li>Brands</li></Link>
                     <Link to='/furniture/466'><li>Furniture</li></Link>
                     <Link to='/furniture/room/products/493'><li>Sale</li></Link>
+                    <Link to='/information-center'><li>Info Center</li></Link>
                     {/* <li>Top Categores</li>
                     <li>Bed</li>
                     <li>Chair</li>

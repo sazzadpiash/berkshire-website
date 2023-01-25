@@ -11,6 +11,7 @@ const InformationCenter = () => {
                         <li><Link to='/information-center'>About Us</Link></li>
                         <li><Link to='/information-center/contact-us'>Contact Us</Link></li>
                         <li><Link to='/information-center/order-information'>Order Information</Link></li>
+                        <li><Link to='/information-center/shipping-information'>Shipping Information</Link></li>
                         <li><Link to=''>Warranty</Link></li>
                         <li><Link to=''>Payment Methods</Link></li>
                         <li><Link to=''>FAQ's</Link></li>
