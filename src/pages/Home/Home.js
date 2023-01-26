@@ -98,7 +98,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className='w-1/2'>
-                        <iframe width="100%" height='450px' src="https://www.youtube.com/embed/2gv9NuQQwO8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+                        <iframe width="100%" height='450px' src="https://www.youtube.com/embed/bPKG_c3_wEY" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
 
                     </div>
                 </div>

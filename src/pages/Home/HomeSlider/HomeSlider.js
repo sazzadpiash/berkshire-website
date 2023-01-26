@@ -26,13 +26,13 @@ const HomeSlider = () => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <img src={banner} alt="" />
+                    <img src='https://res.cloudinary.com/dj6f8ywcl/image/upload/v1674762574/slider1_mfwkx9.png' className='w-full' alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={banner} alt="" />
+                    <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1674763083/slider_bbl2s9.jpg" className='w-full' alt="" />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <img src={banner} alt="" />
+                    <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1674763083/slider_axgjhl.png" className='w-full' alt="" />
                 </SwiperSlide>
             </Swiper>
         </>

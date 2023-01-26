@@ -20,24 +20,24 @@ const OrderInformation = () => {
                 </ol>
             </p>
             <br />
-            <p className='leading-6 tracking-wide font-sans'>Here is the good part:</p>
+            <p className='text-sm text-black font-bold leading-6 tracking-wide font-sans'>Here is the good part:</p>
             <p className='text-sm text-gray-500 leading-6 tracking-wide font-sans'>
                 Do not worry if you made any mistake during your order. All orders will be reviewed on first priority and customers who placed ordered will be contacted either by email or phone to confirm all details. Even if you accidentally purchased an item that you did not mean to do so, it will be corrected on same day or the next business day after we speak to you.
             </p>
             <br />
-            <p className='leading-6 tracking-wide font-sans'>Here is another good part:</p>
+            <p className='text-sm text-black font-bold leading-6 tracking-wide font-sans'>Here is another good part:</p>
             <p className='text-sm text-gray-500 leading-6 tracking-wide font-sans'>
                 Your payment is safe with us. If your payment received more than once or you were too fast with your fingers and click on items you did not wish to have on your shopping list, your money will be refunded the next day after we speak to you and sort things out.
             </p>
             <br />
-            <p className='leading-6 tracking-wide font-sans'>Our Policy:</p>
+            <p className='text-sm text-black font-bold leading-6 tracking-wide font-sans'>Our Policy:</p>
             <p className='text-sm text-gray-500 leading-6 tracking-wide font-sans'>
                 We try to be as fair and accommodating as possible so that both parties (you and us) will be happy.  We treat every customer with special respect and value. We believe in one proven word of wisdom: “Treat others like you wish to be treated.” That word of wisdom has been the foundation of our business ever since and has brought to us many, many wonderful customers.
                 <br /><br />
                 We have been so lucky to have thousands of great customers who trust us and are very comfortable doing business with us knowing that they will be taken care of in good times and bad times. And we enjoy working with all our customers.
             </p>
             <br />
-            <p className='leading-6 tracking-wide font-sans'>Here is a quick list of our policies:</p>
+            <p className='text-sm text-black font-bold leading-6 tracking-wide font-sans'>Here is a quick list of our policies:</p>
             <p className='text-sm text-gray-500 leading-6 tracking-wide font-sans'>
                 <ol>
                     <li>

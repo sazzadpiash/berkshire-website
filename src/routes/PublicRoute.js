@@ -5,8 +5,10 @@ import ContactUs from "../components/ContactUs/ContactUs";
 import Furniture from "../components/Furniture/Furniture";
 import RoomsCategory from "../components/Furniture/RoomsCategory";
 import OrderInformation from "../components/OrderInformation/OrderInformation";
+import PaymentMethod from "../components/PaymentMethod/PaymentMethod";
 import ProductPage from "../components/ProductPage/ProductPage";
 import ShippingInfo from "../components/ShippingInfo/ShippingInfo";
+import Warranty from "../components/Warranty/Warranty";
 import Main from "../layout/Main";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
                     {
                         path: '/information-center/shipping-information',
                         element: <ShippingInfo></ShippingInfo>
+                    },
+                    {
+                        path: '/information-center/warranty',
+                        element: <Warranty></Warranty>
+                    },
+                    {
+                        path: '/information-center/payment-method',
+                        element: <PaymentMethod></PaymentMethod>
                     },
                 ]
             },
