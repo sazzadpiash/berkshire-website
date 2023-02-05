@@ -3,45 +3,56 @@ import { Link } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import HomeSlider from './HomeSlider/HomeSlider';
 import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
+// import { HiOutlineChevronRight } from 'react-icons/hi'
+import PopulerProducts from '../../components/PopulerProducts/PopulerProducts';
 
 const Home = () => {
     return (
         <div>
-            <HomeSlider></HomeSlider>
+
+            <div className='max-w-7xl mx-auto mt-10 flex gap-5'>
+                <div className='w-full rounded-lg'>
+                    <HomeSlider></HomeSlider>
+                    <div class="wrapper rounded-b-lg">
+                        <p class="target">Yes, we do custom made furniture.</p>
+                    </div>
+                </div>
+                
+            </div>
             {/* Shop By Room */}
             <div>
                 <div className='max-w-7xl mx-auto py-16 font-semibold'>
                     <h1 className='text-4xl uppercase'>Shop By Room</h1>
-                    <div className='grid grid-cols-5 gap-5 mt-5'>
+                    <div className='grid grid-cols-5 gap-5 mt-5 text-sm font-normal'>
                         <div>
                             <Link to='furniture/room/467'>
-                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673327292/bedroom2_ynxkp2.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673327292/bedroom2_ynxkp2.jpg" className='rounded-lg' alt="" />
                                 <p className='text-center -mt-9 mb-3'>BEDROOM</p>
                             </Link>
 
                         </div>
                         <div>
                             <Link to='furniture/room/237'>
-                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328002/dinning2_qdhtju.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328002/dinning2_qdhtju.jpg" className='rounded-lg' alt="" />
                                 <p className='text-center -mt-9 mb-3'>DINNING</p>
                             </Link>
 
                         </div>
                         <div>
                             <Link to='furniture/room/238'>
-                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328383/living_kvivny.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328383/living_kvivny.jpg" alt="" className='rounded-lg' />
                                 <p className='text-center -mt-9 mb-3'>LIVING</p>
                             </Link>
                         </div>
                         <div>
                             <Link to='furniture/room/239'>
-                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328844/office_vggil6.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673328844/office_vggil6.jpg" alt="" className='rounded-lg' />
                                 <p className='text-center -mt-9 mb-3'>OFFICE</p>
                             </Link>
                         </div>
                         <div>
                             <Link to='furniture/room/260'>
-                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673329231/bar_and_counter_ijecxj.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673329231/bar_and_counter_ijecxj.jpg" className='rounded-lg' alt="" />
                                 <p className='text-center -mt-9 mb-3'>BAR AND COUNTER</p>
                             </Link>
                         </div>
@@ -50,7 +61,7 @@ const Home = () => {
             </div>
 
             {/* Customize Your Product Section */}
-            <div className='max-w-7xl bg-[#eeeeee] mx-auto p-10 mb-20'>
+            <div className='max-w-7xl bg-[#eeeeee] mx-auto p-10 mb-20 rounded-lg'>
                 <div className='flex'>
                     <div className='basis-1/2'>
                         <h2 className='font-[500] text-3xl mb-2'>DESIGN YOUR OWN</h2>
@@ -64,7 +75,7 @@ const Home = () => {
                             <li><img className='w-10' src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673670178/fotor_2023-1-14_10_20_52_st2xkt.png" alt="" /></li>
                         </ul>
                         <Link to='/furniture/466'>
-                        <button className='btn text-white btn-sm mt-5'>Shop Now <HiOutlineArrowNarrowRight className='text-base ml-1'></HiOutlineArrowNarrowRight></button>
+                            <button className='btn text-white btn-sm mt-5 font-normal rounded capitalize'>Start Customizing <HiOutlineArrowNarrowRight className='text-base ml-1'></HiOutlineArrowNarrowRight></button>
                         </Link>
                     </div>
                     <div className='basis-1/2 flex justify-center items-center'>
@@ -73,6 +84,17 @@ const Home = () => {
                 </div>
 
             </div>
+
+            {/* Populer Products */}
+            <div className='pb-20'>
+                <div className='max-w-7xl mx-auto font-semibold'>
+                    <h1 className='text-4xl uppercase'>Populer Products</h1>
+                    <div className='gap-5 mt-5'>
+                        <PopulerProducts></PopulerProducts>
+                    </div>
+                </div>
+            </div>
+
 
             {/* On Sale */}
             <div className='pb-20'>
@@ -102,7 +124,7 @@ const Home = () => {
 
                     </div>
                 </div>
-                <div className='flex max-w-7xl mx-auto bg-[#eeeeee]'>
+                <div className='flex max-w-7xl mt-16 mx-auto bg-[#eeeeee]'>
                     <div className='w-1/2'>
                         <img src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673204911/about-us_l33dtv.jpg" className='w-full' alt="" />
                     </div>

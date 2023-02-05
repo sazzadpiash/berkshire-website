@@ -23,7 +23,7 @@ const HomeSlider = () => {
                 mousewheel={true}
                 keyboard={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-                className="mySwiper"
+                className="mySwiper rounded-t-lg"
             >
                 <SwiperSlide>
                     <img src='https://res.cloudinary.com/dj6f8ywcl/image/upload/v1674762574/slider1_mfwkx9.png' className='w-full' alt="" />

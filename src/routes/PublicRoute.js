@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import BulkEdit from "../admin/BulkEdit/BulkEdit";
+import DashboardPage from "../admin/DashboardPage/DashboardPage";
 import Handstone from "../Brands/Handstone/Handstone";
 import AboutUs from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
@@ -9,6 +11,7 @@ import PaymentMethod from "../components/PaymentMethod/PaymentMethod";
 import ProductPage from "../components/ProductPage/ProductPage";
 import ShippingInfo from "../components/ShippingInfo/ShippingInfo";
 import Warranty from "../components/Warranty/Warranty";
+import Dashboard from "../layout/Dashboard";
 import Main from "../layout/Main";
 import Cart from "../pages/Cart/Cart";
 import Categories from "../pages/Categories/Categories";
@@ -16,6 +19,7 @@ import Home from "../pages/Home/Home";
 import InformationCenter from "../pages/InformationCenter/InformationCenter";
 import Login from "../pages/LoginRegister/Login";
 import SingleProduct from "../pages/Singleproduct/SingleProduct";
+import AllProducts from "../test/AllProducts";
 import Test from "../test/Test";
 
 const router = createBrowserRouter([
@@ -67,38 +71,52 @@ const router = createBrowserRouter([
             },
             {
                 path: '/brands/:id',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <Categories></Categories>
             },
             {
                 path: '/Handstone',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <Handstone></Handstone>
             },
             {
                 path: '/furniture/:id',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <Furniture></Furniture>
             },
             {
                 path: '/furniture/room/:id',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <RoomsCategory></RoomsCategory>
             },
             {
                 path: '/furniture/room/products/:id',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <ProductPage></ProductPage>
             },
             {
                 path: '/product/:id',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <SingleProduct></SingleProduct>
+            },
+
+
+            // test route
+            {
+                path: '/allproducts',
+                element: <AllProducts></AllProducts>
             },
             {
                 path: '/test',
-                // loader: ()=>fetch('https://berkshire-furniture.vercel.app/products'),
                 element: <Test></Test>
+            },
+        ]
+    },
+    {
+        path: '/admin',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: '/admin/dashboard',
+                element: <DashboardPage></DashboardPage>
+            },
+            {
+                path: '/admin/all-product',
+                element: <BulkEdit></BulkEdit>
             },
         ]
     }

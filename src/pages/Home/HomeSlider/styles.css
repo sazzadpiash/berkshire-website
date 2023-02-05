@@ -7,3 +7,33 @@
 .swiper-pagination-bullet-active {
     background: #fff;
 }
+
+
+.wrapper {
+    width: 100%;
+    margin: auto;
+    /* border: 4px solid #eb1c49; */
+    padding: 5px 0px;
+    overflow-x: hidden;
+    background-color: black;
+  }
+  
+  .target {
+    
+    font-weight: bold;
+    color: white;
+    animation-name: rightToLeft;
+    animation-duration: 9.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation: rightToLeft 4.5s linear infinite; */
+  }
+  
+  @keyframes rightToLeft {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-300px);
+    }
+  }
