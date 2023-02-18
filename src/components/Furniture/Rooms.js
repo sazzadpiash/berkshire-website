@@ -2,14 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Rooms = ({ category }) => {
-    const catImg = category?.image?.src
-
-    // if(catImg!==null){
-    //     catImg = category?.image?.src
-    // }
-    // else{
-    //     catImg = 'https://leaveitwithme.com.au/wp-content/uploads/2013/11/dummy-image-square.jpg';
-    // }
+    const catImg = category?.image?.src;
     return (
         <Link to={`/furniture/room/${category?.id}`}>
             <div className="w-full bg-base-100 bg-white border-2 p-4 flex justify-between flex-col">
@@ -22,8 +15,6 @@ const Rooms = ({ category }) => {
                 </div>
             </div>
         </Link>
-
     );
 };
-
 export default Rooms;

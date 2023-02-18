@@ -5,7 +5,7 @@ const ProductList = ({id, limit, cols}) => {
     const [products, setproducts] = useState([]);
 
     useEffect(() => {
-        fetch(`https://berkshire-furniture.vercel.app/products/${id}/${limit}`)
+        fetch(`https://berkshire-furniture.vercel.app/products/${id}?limit=${limit}`)
             .then(res => res.json())
             .then(data => setproducts(data))
     }, [id, limit])

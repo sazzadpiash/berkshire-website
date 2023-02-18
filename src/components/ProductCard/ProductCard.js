@@ -19,8 +19,8 @@ const ProductCard = ({ product }) => {
     return (
         <Link to={`/product/${product?._id}`}>
             <div className="card card-compact w-full bg-base-100 bordered rounded-lg" style={{ fontFamily: 'Poppins', }}>
-                <div className='h-48'>
-                    <img className='max-h-48 w-full rounded-t-lg' src={productImage} alt="Shoes" />
+                <div className='h-48 rounded-t-lg overflow-hidden'>
+                    <img className='max-h-48 w-auto m-auto' src={productImage} alt="Shoes" />
                 </div>
                 <div className="card-body gap-2">
                     <div className='grid grid-cols-5 gap-1 mb-3 h-12'>

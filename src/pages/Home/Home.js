@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProductList from '../../components/ProductList/ProductList';
 import HomeSlider from './HomeSlider/HomeSlider';
-import { HiOutlineArrowNarrowRight } from 'react-icons/hi'
+import { HiArrowNarrowRight, HiOutlineArrowNarrowRight } from 'react-icons/hi'
 // import { HiOutlineChevronRight } from 'react-icons/hi'
 import PopulerProducts from '../../components/PopulerProducts/PopulerProducts';
 
@@ -13,11 +13,11 @@ const Home = () => {
             <div className='max-w-7xl mx-auto mt-10 flex gap-5'>
                 <div className='w-full rounded-lg'>
                     <HomeSlider></HomeSlider>
-                    <div class="wrapper rounded-b-lg">
-                        <p class="target">Yes, we do custom made furniture.</p>
+                    <div className="wrapper rounded-b-lg">
+                        <p className="target">Yes, we do custom made furniture.</p>
                     </div>
                 </div>
-                
+
             </div>
             {/* Shop By Room */}
             <div>
@@ -99,9 +99,12 @@ const Home = () => {
             {/* On Sale */}
             <div className='pb-20'>
                 <div className='max-w-7xl mx-auto font-semibold'>
-                    <h1 className='text-4xl uppercase'>ON SALE</h1>
+                    <div className='flex justify-between'>
+                        <h1 className='text-4xl uppercase'>ON SALE</h1>
+                        <Link to='furniture/room/products/493' className='flex gap-2 items-center btn btn-ghost'>See More <HiArrowNarrowRight></HiArrowNarrowRight></Link>
+                    </div>
                     <div className='gap-5 mt-5'>
-                        <ProductList id={493} limit={8} cols={4}></ProductList>
+                        <ProductList id={493} limit={4} cols={4}></ProductList>
                     </div>
                 </div>
             </div>
@@ -141,7 +144,7 @@ const Home = () => {
             </div>
             {/* map */}
             <div className='mt-20'>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5777.643488471995!2d-79.583582!3d43.610253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d8497a82e1c0ca!2sBerkshire%20Furniture!5e0!3m2!1sen!2sbd!4v1673551185979!5m2!1sen!2sbd" title='Berkshire Furniture' width={'100%'} height={'400px'} style={{ border: 0 }} loading={'lazy'} referrerpolicy={"no-referrer-when-downgrade"}></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5777.643488471995!2d-79.583582!3d43.610253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d8497a82e1c0ca!2sBerkshire%20Furniture!5e0!3m2!1sen!2sbd!4v1673551185979!5m2!1sen!2sbd" title='Berkshire Furniture' width={'100%'} height={'400px'} style={{ border: 0 }} loading={'lazy'} referrerPolicy={"no-referrer-when-downgrade"}></iframe>
             </div>
         </div>
     );

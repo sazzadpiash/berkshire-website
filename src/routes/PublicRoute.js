@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import BulkEdit from "../admin/BulkEdit/BulkEdit";
 import DashboardPage from "../admin/DashboardPage/DashboardPage";
+import Brands from "../Brands/Brands";
 import Handstone from "../Brands/Handstone/Handstone";
 import AboutUs from "../components/AboutUs/AboutUs";
 import ContactUs from "../components/ContactUs/ContactUs";
@@ -71,7 +72,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/brands/:id',
-                element: <Categories></Categories>
+                element: <Brands></Brands>
             },
             {
                 path: '/Handstone',

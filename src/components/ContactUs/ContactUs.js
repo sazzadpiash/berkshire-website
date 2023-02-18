@@ -70,7 +70,7 @@ const ContactUs = () => {
                     </div>
                 </div>
                 <div className='mt-10'>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5777.643488471995!2d-79.583582!3d43.610253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d8497a82e1c0ca!2sBerkshire%20Furniture!5e0!3m2!1sen!2sbd!4v1673551185979!5m2!1sen!2sbd" title='Berkshire Furniture' width={'100%'} height={'400px'} style={{ border: 0 }} loading={'lazy'} referrerpolicy={"no-referrer-when-downgrade"}></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d5777.643488471995!2d-79.583582!3d43.610253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d8497a82e1c0ca!2sBerkshire%20Furniture!5e0!3m2!1sen!2sbd!4v1673551185979!5m2!1sen!2sbd" title='Berkshire Furniture' width={'100%'} height={'400px'} style={{ border: 0 }} loading={'lazy'} referrerPolicy={"no-referrer-when-downgrade"}></iframe>
                 </div>
             </div>
         </div>
