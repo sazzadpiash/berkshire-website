@@ -21,7 +21,7 @@ const Dashboard = () => {
                         </NavLink>
                     </div>
                     <div>
-                    <NavLink
+                        <NavLink
                             to='/admin/all-product'
                             className={`p-2 px-5 mb-1 block w-full text-left focus:bg-[#278fe9] rounded`}
                             style={({ isActive }) =>
@@ -29,6 +29,17 @@ const Dashboard = () => {
                             }
                         >
                             All Product
+                        </NavLink>
+                    </div>
+                    <div>
+                        <NavLink
+                            to='/admin/bulk-edit'
+                            className={`p-2 px-5 mb-1 block w-full text-left focus:bg-[#278fe9] rounded`}
+                            style={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Bulk Edit
                         </NavLink>
                     </div>
                     <div>

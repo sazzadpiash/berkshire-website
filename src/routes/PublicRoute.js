@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import AllProduct from "../admin/AllProduct/AllProduct";
 import BulkEdit from "../admin/BulkEdit/BulkEdit";
 import DashboardPage from "../admin/DashboardPage/DashboardPage";
 import Brands from "../Brands/Brands";
@@ -117,6 +118,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/admin/all-product',
+                element: <AllProduct></AllProduct>
+            },
+            {
+                path: '/admin/bulk-edit',
                 element: <BulkEdit></BulkEdit>
             },
         ]
