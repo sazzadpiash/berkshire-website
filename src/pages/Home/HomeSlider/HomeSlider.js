@@ -29,7 +29,7 @@ const HomeSlider = () => {
                     Keyboard,
                     Autoplay,
                 ]}
-                className="mySwiper rounded-t-lg"
+                className="mySwiper"
             >
                 <SwiperSlide>
                     <div
@@ -40,7 +40,7 @@ const HomeSlider = () => {
                             backgroundSize: "cover",
                         }}
                     >
-                        <div className=" lg:px-16 lg:py-28 h-96 lg:h-auto flex items-end lg:block">
+                        <div className=" lg:px-16 lg:py-28 h-[600px] flex items-end lg:block">
                             <div className="w-full lg:w-1/2 bg-white p-4 mb-5 mx-10 lg:m-0 lg:p-10 text-center lg:text-left flex flex-col items-center lg:block">
                                 <p className="text-xl lg:text-4xl mb-3">
                                     OUR MOST CUSTOMIZABLE BED YET

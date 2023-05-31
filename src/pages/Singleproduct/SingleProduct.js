@@ -10,6 +10,9 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import OptionModal from '../../components/OptionModal/OptionModal';
 
 const SingleProduct = () => {
+    const [variation, setVariation] = useState([])
+    const [optionId, setOptionId] = useState('547856')
+    console.log(variation);
     let loading = true;
     const { id } = useParams();
     const [product, setProduct] = useState({});
@@ -74,18 +77,33 @@ const SingleProduct = () => {
                                 </div>
                             </div>
                             <div className='w-1/2 pl-10'>
-                                <h2 className='text-xl'>{product.name}</h2>
-                                <h2 className='text-3xl my-3'>${product.price}</h2>
-                                <p className='text-sm mb-3'><b>SKU: </b>{product?.sku}</p>
+                                <h2 className='text-3xl mb-5'>{product.name}</h2>
+                                <span className='text-xl p-2 rounded bg-gray-200'>${product.price}</span>
+                                <p className='text-sm mb-3 mt-5'><b>SKU: </b>{product?.sku}</p>
                                 <div className="border p-3 mb-5">
                                     <div className='flex gap-2'>
                                         {/* <b className='text-sm'>Info: </b> */}
                                         <p className='text-sm' dangerouslySetInnerHTML={{ __html: product.short_description }}></p>
                                     </div>
                                 </div>
+                                {
+                                    variation.length !== 0 ? <>
+                                        <div className="border p-4 mb-5">
+                                            <div className='gap-2'>
+                                                <p className='font-bold underline underline-offset-8 mb-3'>Selected Options: </p>
+                                                {
+                                                    variation.map(value=><p className='text-sm leading-6'>{value}</p>)
+                                                }
+
+                                            </div>
+                                        </div>
+                                    </>
+                                        :
+                                        <></>
+                                }
                                 <div className=''>
                                     {/* The button to open modal */}
-                                    <label htmlFor="option-modal" className="btn w-full btn-outline hover:bg-black mr-3 justify-between">Select Product Option<AiOutlineArrowRight></AiOutlineArrowRight></label>                                    
+                                    <label htmlFor="option-modal" className="btn w-full btn-outline hover:bg-black mr-3 justify-between">Select Product Option<AiOutlineArrowRight></AiOutlineArrowRight></label>
                                 </div>
                                 <div className='singleProductpage-Btn my-8 flex'>
                                     <select className="select w-full select-bordered mr-3 basis-1/5">
@@ -118,7 +136,7 @@ const SingleProduct = () => {
                                 similerProducts.map(similerProduct => <ProductCard key={similerProduct._id} product={similerProduct}></ProductCard>)
                             }
                         </div>
-                        <OptionModal optionId={'547856'}></OptionModal>
+                        <OptionModal variation={variation} setOptionId={setOptionId} setVariation={setVariation} optionId={optionId}></OptionModal>
                     </div>
             }
 

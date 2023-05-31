@@ -6,9 +6,9 @@ const ProductCard = ({ product }) => {
     let productImage = product?.images[0]?.src;
     let productName = product?.name;
 
-    if (product?.name.length > 20) {
-        productName = product.name.slice(0, 20) + '...'
-    }
+    // if (product?.name.length > 17) {
+    //     productName = product.name.slice(0, 17) + '...'
+    // }
 
     if (product?.images.length > 0) {
         productImage = product?.images[0]?.src
@@ -18,31 +18,32 @@ const ProductCard = ({ product }) => {
     }
     return (
         <Link to={`/product/${product?._id}`}>
-            <div className="card card-compact w-full bg-base-100 bordered rounded-lg" style={{ fontFamily: 'Poppins', }}>
-                <div className='h-48 rounded-t-lg overflow-hidden'>
-                    <img className='max-h-48 w-auto m-auto' src={productImage} alt="Shoes" />
+            <div className="card card-compact w-full h-full bg-[#f5f5f5] bordered" style={{ fontFamily: 'Poppins', }}>
+                <div className='h-32 md:h-60 p-3  overflow-hidden'>
+                    <img className='h-full w-auto m-auto' src={productImage} alt="Shoes" />
                 </div>
-                <div className="card-body gap-2">
-                    <div className='grid grid-cols-5 gap-1 mb-3 h-12'>
+                <div className="flex flex-col p-4 pt-0 gap-0 md:gap-2">
+                    {/* <div className='grid grid-cols-5 gap-1 mb-0 md:mb-3 h-auto md:h-12'>
                         {
                             product?.images.slice(0, 5).map((thumbImg, i) => <img key={i + 1} src={thumbImg?.src} className='max-w-12 max-h-12' alt='thumb-img' />)
                         }
-                    </div>
-                    <h2 className="card-title text-base capitalize justify-between items-center gap-4 tooltip" data-tip={[product?.name]}>{productName}
+                    </div> */}
+                    <h2 className="mt-2 md:mt-0 text-sm md:text-base capitalize text-left justify-between items-center gap-4 tooltip" data-tip={[product?.name]}>{productName}
                     </h2>
 
-                    <span className='font-normal text-sm flex justify-between items-center'>{product?.categories[0]?.name}<span className='text-primary font-bold text-base'>
-                        ${product?.price}
-                        {
-                            product?.on_sale && <span className='line-through text-sm text-right font-normal ml-2'>${product?.regular_price}</span>
-                        }
-                        
-                    </span></span>
-                    <div className="card-actions justify-end grow items-end">
-                        <p className='flex gap-1 py-2'><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar><FaStar className='text-warning'></FaStar></p>
-                        <button className="btn-custom">Buy Now</button>
-                    </div>
+                    <span className='font-normal text-xs text-center md:text-left md:text-sm flex flex-col md:flex-row justify-between items-center'>{product?.categories[0]?.name}</span>
+                    
                 </div>
+                <div className="card-actions p-3 justify-center md:justify-between grow items-end">
+                        <button className="btn-custom hidden md:block">Buy Now</button>
+                        <span className='text-primary font-bold text-base mt-1 md:mt-0'>
+                            ${product?.price}
+                            {
+                                product?.on_sale && <span className='line-through text-sm text-right font-normal ml-2'>${product?.regular_price}</span>
+                            }
+
+                        </span>
+                    </div>
             </div>
         </Link>
     );

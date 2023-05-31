@@ -10,7 +10,7 @@ const PopulerProducts = () => {
             .then((data) => setproducts(data));
     }, []);
     return (
-        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5`}>
+        <div className='grid grid-cols-2 grid-auto-rows-fr  md:grid-cols-4 gap-2 mx-3 md:mx-0 md:gap-5'>
             {products.map((product) => (
                 <ProductCard
                     key={product?.wcId}

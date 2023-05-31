@@ -5,18 +5,19 @@ import HomeSlider from "./HomeSlider/HomeSlider";
 import { HiArrowNarrowRight, HiOutlineArrowNarrowRight } from "react-icons/hi";
 // import { HiOutlineChevronRight } from 'react-icons/hi'
 import PopulerProducts from "../../components/PopulerProducts/PopulerProducts";
+import BlogCard from "../../components/BlogCard/BlogCard";
 
 const Home = () => {
     return (
         <div>
-            <div className="max-w-7xl mx-auto mt-3 lg:mt-10 flex gap-5">
-                <div className="w-full rounded-lg">
+            <div className="wrapper">
+                <p className="target">
+                    Yes, we do custom made furniture.
+                </p>
+            </div>
+            <div className="flex gap-5">
+                <div className="w-full">
                     <HomeSlider></HomeSlider>
-                    <div className="wrapper rounded-b-lg">
-                        <p className="target">
-                            Yes, we do custom made furniture.
-                        </p>
-                    </div>
                 </div>
             </div>
             {/* Shop By Room */}
@@ -155,9 +156,9 @@ const Home = () => {
 
             {/* Populer Products */}
             <div className="pb-20">
-                <div className="max-w-7xl mx-auto font-semibold">
-                    <h1 className="text-4xl uppercase">Populer Products</h1>
-                    <div className="gap-5 mt-5 sm:mx-10 xl:mx-0">
+                <div className="max-w-7xl mx-auto font-semibold overflow-hidden">
+                    {/* <h1 className="text-4xl uppercase">Populer Products</h1> */}
+                    <div className="mt-5 xl:mx-0">
                         <PopulerProducts></PopulerProducts>
                     </div>
                 </div>
@@ -241,7 +242,15 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            {/* Blog Section */}
+                <div className=" mx-auto grid grid-cols-4 gap-5 my-20 px-5">
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                    <BlogCard/>
+                </div>
             </div>
+            
             {/* map */}
             <div className="mt-20">
                 <iframe
