@@ -20,7 +20,7 @@ const Header = () => {
     }, [searchQuery]);
     return (
         <header>
-            <div className="top-header max-w-7xl mx-auto p-3 lg:p-0 pt-6 pb-0 lg:py-6  flex justify-between items-center ">
+            <div className="top-header px-5 mx-auto py-3 lg:p-5 pt-6 pb-0 lg:py-6  flex justify-between items-center ">
                 <div className="logo">
                     <Link to="/">
                         <img className="w-36" src={logo} alt="" />
@@ -132,7 +132,7 @@ const Header = () => {
                 </div>
             </div>
             <div className="bottom-header border-t border-b border-gray-200 text-black py-2 relative hidden lg:block">
-                <ul className="flex justify-start gap-10 max-w-7xl mx-auto">
+                <ul className="flex justify-center gap-10 max-w-7xl mx-auto">
                     <Link to="/">
                         <li>Home</li>
                     </Link>

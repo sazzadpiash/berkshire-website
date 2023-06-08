@@ -35,7 +35,7 @@ const ProductPage = () => {
     }
 
     return (
-        <div className='max-w-7xl mx-auto py-10'>
+        <div className='px-5 mx-auto py-10'>
 
             <InfiniteScroll
                 dataLength={products.length}
