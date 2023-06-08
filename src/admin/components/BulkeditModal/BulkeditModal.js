@@ -14,15 +14,27 @@ const BulkeditModal = () => {
                 className="modal cursor-pointer"
             >
                 <label className="modal-box relative rounded">
-                    <label htmlFor="bulk-edit" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <div>
+                    <form>
+                        <label htmlFor="bulk-edit" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                         <div>
-                            <label htmlFor="exp_field">Extra Product Option:</label>
-                            <select className='select' name="exp_field" id="exp_field">
-                                <option value="234823">Handstone Product Option</option>
-                            </select>
+                            <div>
+                                <label className='mr-4' htmlFor="exp_field">Extra Product Option:</label>
+                                <select className='select select-bordered' name="exp_field" id="exp_field">
+                                    <option selected value="null">Select</option>
+                                    <option value="234823">Handstone Product Option</option>
+                                </select>
+                            </div>
+                            <div className='mt-3'>
+                                <label className='mr-[46px]' htmlFor="priceShow">Show/Hide Price:</label>
+                                <select className='select select-bordered' name="priceShow" id="priceShow">
+                                    <option selected value="null">Select</option>
+                                    <option>Show</option>
+                                    <option>Hide</option>
+                                </select>
+                            </div>
                         </div>
-                    </div> 
+                    </form>
+
                 </label>
             </label>
         </div>
