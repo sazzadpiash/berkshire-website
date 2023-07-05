@@ -1,5 +1,4 @@
 import React from "react";
-import banner from "./../../../assets/images/banner.png";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,7 +39,7 @@ const HomeSlider = () => {
                             backgroundSize: "cover",
                         }}
                     >
-                        <div className=" lg:px-16 lg:py-28 h-[800px] flex items-end lg:block">
+                        <div className="py-10 lg:px-16 lg:py-28 h-auto md:h-[800px] flex items-end lg:block">
                             <div className="w-full lg:w-1/2 bg-slate-100/75 p-4 mb-5 mx-10 lg:m-0 lg:p-10 text-center lg:text-left flex flex-col items-center lg:block">
                                 <p className="text-xl lg:text-4xl mb-3">
                                     OUR MOST CUSTOMIZABLE BED YET

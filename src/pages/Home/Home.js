@@ -184,12 +184,12 @@ const Home = () => {
 
             {/* About Section */}
             <div className="about-section mb-5">
-                <div className="flex flex-col lg:flex-row max-w-7xl mt-16 mx-10 lg:mx-auto bg-[#eeeeee]">
-                    <div className="p-20 w-full lg:w-1/2 flex flex-col justify-center">
-                        <h1 className="text-5xl font-semibold">
+                <div className="flex flex-col lg:flex-row max-w-7xl mt-16 mx-5 md:mx-10 lg:mx-auto bg-[#eeeeee]">
+                    <div className="p-10 md:p-20 w-full lg:w-1/2 flex flex-col justify-center">
+                        <h1 className="text-2xl md:text-5xl font-semibold">
                             Berkshire Furniture
                         </h1>
-                        <h3 className="text-2xl font-semibold mt-2">
+                        <h3 className="text-lg md:text-2xl font-semibold mt-2">
                             About Berkshire Furniture
                         </h3>
                         <div className="flex mt-3 gap-5">
@@ -212,7 +212,7 @@ const Home = () => {
                         ></iframe>
                     </div>
                 </div>
-                <div className="flex flex-col lg:flex-row max-w-7xl mt-16 mx-10 lg:mx-auto bg-[#eeeeee]">
+                <div className="flex flex-col lg:flex-row max-w-7xl mt-16 mx-5 md:mx-10 lg:mx-auto bg-[#eeeeee]">
                     <div className="w-full lg:w-1/2">
                         <img
                             src="https://res.cloudinary.com/dj6f8ywcl/image/upload/v1673204911/about-us_l33dtv.jpg"
@@ -220,11 +220,11 @@ const Home = () => {
                             alt=""
                         />
                     </div>
-                    <div className="p-16 w-full lg:w-1/2 flex flex-col justify-center">
-                        <h1 className="text-5xl font-semibold">
+                    <div className="p-10 md:p-16 w-full lg:w-1/2 flex flex-col justify-center">
+                        <h1 className="text-2xl md:text-5xl font-semibold">
                             Berkshire Furniture
                         </h1>
-                        <h3 className="text-2xl font-semibold mt-2">
+                        <h3 className="text-lg md:text-2xl font-semibold mt-2">
                             About Berkshire Furniture
                         </h3>
                         <div className="flex mt-3 gap-5">
@@ -243,7 +243,7 @@ const Home = () => {
                     </div>
                 </div>
             {/* Blog Section */}
-                <div className=" mx-auto grid grid-cols-4 gap-5 my-20 px-5">
+                <div className=" mx-auto grid md:grid-cols-4 gap-5 my-20 px-5">
                     <BlogCard/>
                     <BlogCard/>
                     <BlogCard/>

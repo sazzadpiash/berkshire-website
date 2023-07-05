@@ -6,21 +6,24 @@ import BulkeditModal from "../components/BulkeditModal/BulkeditModal";
 import Header from "../components/Header/Header";
 
 const BulkEdit = () => {
+    const [allProducts, setAllProducts] = useState([]);
+    const [motherCategory, setMotherCategory] = useState([]);
+    const [productCount, setProductCount] = useState(0);
+    const [pagination, setPagination] = useState(0);
+    const [productSkip, setProductSkip] = useState(0);
+    const [currentPage, setCurrentPage] = useState(0);
+    const [filterOption, setFilterOption] = useState({});
     // adding for select
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
-    const [list, setList] = useState([]);
-
-    // console.log(isCheck);
 
     const handleSelectAll = e => {
         setIsCheckAll(!isCheckAll);
-        setIsCheck(allProducts.map(li => li.wcId));
+        setIsCheck(allProducts.map(li => li._id));
         if (isCheckAll) {
             setIsCheck([]);
         }
     };
-
     const handleClick = (event, id) => {
         const { checked } = event.target;
         setIsCheck([...isCheck, id]);
@@ -30,55 +33,38 @@ const BulkEdit = () => {
     };
     // sellect end
 
-
-    const [allProducts, setAllProducts] = useState([]);
-    const [motherCategory, setMotherCategory] = useState([]);
-    const [productCount, setProductCount] = useState(0);
-    const [pagination, setPagination] = useState(0);
-    const [productSkip, setProductSkip] = useState(0);
-    const [currentPage, setCurrentPage] = useState(0);
-    const [filterOption, setFilterOption] = useState({});
-    // console.log(pagination)
     useEffect(() => {
         setPagination(Array.from({ length: Math.ceil(productCount / 700) }, (_, i) => i + 1))
     }, [productCount])
     useEffect(() => {
-        // https://berkshire-furniture.vercel.app/all-products
-        // fetch(`http://localhost:5000/bulk-edit?skip=${productSkip}`)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         setAllProducts(data.result);
-        //         setProductCount(data.totallProduct);
-        //     });
-
-        // Make a request for a user with a given ID
         axios.get('http://localhost:5000/bulk-edit', {
             params: {
-                option : filterOption,
+                option: filterOption,
                 skip: productSkip
-        }    
+            }
         })
-            .then( (response) => {
+            .then((response) => {
                 // handle success
                 setAllProducts(response.data.result);
                 setProductCount(response.data.totallProduct);
-                console.log(response);
+                // console.log(response);
             })
             .catch(function (error) {
                 // handle error
                 console.log(error);
             })
-           
+
     }, [productSkip, filterOption]);
+
     // load all mother category
     useEffect(() => {
-        // fetch('https://berkshire-furniture.vercel.app/all-products')
-        fetch(`http://localhost:5000/categories/0`)
+        fetch(`http://localhost:5000/categories/GETALL`)
             .then((res) => res.json())
             .then((data) => {
-                setMotherCategory(data);
+                setMotherCategory(data.filter(item => item.parent === 0));
             });
     }, []);
+
     // funtion for product page select option start
     const handleSelectPage = (e) => {
         setProductSkip(e.target.value * 700);
@@ -96,7 +82,60 @@ const BulkEdit = () => {
         })
     }
     // function for filter mother category end
-    console.log(filterOption);
+
+    // fuction for hide price start
+    const handleTrueFlase = (product, type, event) => {
+        if (type === 'price_hide') {
+            // /product/edit/price_show_hide/
+            fetch(`http://localhost:5000/product/edit/price_show_hide/${product?._id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ hide: event.target.checked }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.acknowledged) {
+                        setAllProducts(
+                            allProducts.map(item => {
+                                if (item._id === product?._id) {
+                                    item.price_hide = !event.target.checked
+                                }
+                                return item;
+                            })
+                        );
+                    }
+
+                });
+        }
+        if (type === 'quote') {
+            // /product/edit/price_show_hide/
+            fetch(`http://localhost:5000/product/edit/quote/${product?._id}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ quote: event.target.checked }),
+            })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.acknowledged) {
+                        setAllProducts(
+                            allProducts.map(item => {
+                                if (item._id === product?._id) {
+                                    console.log(item);
+                                    item.quote = !event.target.checked
+                                }
+                                return item;
+                            })
+                        );
+                    }
+
+                });
+        }
+    }
+    // fuction for hide price end
 
     return (
         <div>
@@ -152,19 +191,19 @@ const BulkEdit = () => {
                                         />
                                     </label>
                                 </th>
-                                <th className="w-20">ID</th>
-                                <th className="w-20">No.</th>
-                                <th className="w-20">SKU</th>
-                                <th className="w-28">Title</th>
-                                <th className="w-20">Tags</th>
-                                <th className="w-24">Price</th>
-                                <th className="w-20">Sale Price</th>
-                                <th className="w-52">Categories</th>
-                                <th className="w-20">Status</th>
-                                <th className="w-44">Price Show/Hide</th>
-                                <th className="w-32">Add To Quote</th>
-                                <th className="w-32">Extra Options</th>
-                                <th className="w-40">Wholesale Price</th>
+                                <th className="w-20 text-xs">ID</th>
+                                {/* <th className="w-20 text-xs">No.</th> */}
+                                <th className="w-40 text-xs">SKU</th>
+                                <th className="w-56 text-xs">Title</th>
+                                <th className="w-32 text-xs">Tags</th>
+                                <th className="w-24 text-xs">Price</th>
+                                <th className="w-20 text-xs">Sale Price</th>
+                                <th className="w-52 text-xs">Categories</th>
+                                <th className="w-20 text-xs">Status</th>
+                                <th className="w-28 text-xs text-center">Hide Price</th>
+                                <th className="w-20 text-xs text-center">Quote</th>
+                                <th className="w-32 text-xs">Extra Options</th>
+                                <th className="w-40 text-xs">Wholesale Price</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -173,9 +212,9 @@ const BulkEdit = () => {
                                     <th>
                                         <label>
                                             <input
-                                                checked={isCheck.includes(singleProduct.wcId)}
+                                                checked={isCheck.includes(singleProduct._id)}
                                                 // eslint-disable-next-line no-restricted-globals
-                                                onChange={() => handleClick(event, singleProduct.wcId)}
+                                                onChange={() => handleClick(event, singleProduct._id)}
                                                 type="checkbox"
                                                 className="checkbox w-4 h-4"
                                             />
@@ -183,15 +222,15 @@ const BulkEdit = () => {
                                     </th>
                                     {/* <th className='border-r p-0'><input type="text" defaultValue='ID' className='text-center w-full h-fit py-1' /></th> */}
                                     <th className="border-r">{singleProduct.wcId}</th>
-                                    <th className="border-r">{i}</th>
-                                    <th className="border-r overflow-hidden"><input type="text" defaultValue={singleProduct.sku} /></th>
-                                    <th className="border-r overflow-hidden">
+                                    {/* <th className="border-r">{i}</th> */}
+                                    <th className="border-r text-xs overflow-hidden"><input readOnly type="text" defaultValue={singleProduct.sku} /></th>
+                                    <th className="border-r text-xs overflow-hidden">
                                         {singleProduct.name}
                                     </th>
-                                    <th className="border-r overflow-hidden">{singleProduct.tags.map((tag, i) => <span key={i}>{tag.name}, </span>)}</th>
-                                    <th className="border-r overflow-hidden">{singleProduct.regular_price}</th>
-                                    <th className="border-r overflow-hidden">{singleProduct.price}</th>
-                                    <th className="border-r overflow-hidden">
+                                    <th className="border-r text-xs text-center overflow-hidden">{singleProduct.tags.map((tag, i) => <span key={i}>{tag.name}, </span>)}</th>
+                                    <th className="border-r text-xs text-center overflow-hidden">{singleProduct.regular_price}</th>
+                                    <th className="border-r text-xs text-center overflow-hidden">{singleProduct.price}</th>
+                                    <th className="border-r text-xs text-center overflow-hidden">
                                         <p className="text-xs">
                                             {singleProduct.categories
                                                 .map(
@@ -201,18 +240,35 @@ const BulkEdit = () => {
                                                 .join(", ")}
                                         </p>
                                     </th>
-                                    <th className="border-r">{singleProduct.status}</th>
-                                    <th className="border-r">
-                                        Price Show/Hide
+                                    <th className="border-r text-xs">{singleProduct.status}</th>
+                                    <th className="border-r text-xs text-center">
+                                        <input
+                                            type="checkbox"
+                                            onChange={(e) => handleTrueFlase(singleProduct, "price_hide", e)}
+                                            checked={singleProduct?.price_hide}
+                                            className="form-checkbox h-5 w-5 text-indigo-600"
+                                        />
                                     </th>
-                                    <th className="border-r">Quote</th>
-                                    <th className="border-r">{singleProduct?.exp_options}</th>
+                                    <th className="border-r text-xs text-center">
+                                        <input
+                                            type="checkbox"
+                                            onChange={(e) => handleTrueFlase(singleProduct, "quote", e)}
+                                            checked={singleProduct?.quote}
+                                            className="form-checkbox h-5 w-5 text-indigo-600"
+                                        />
+                                    </th>
+                                    <th className="border-r text-xs">
+                                        <select className="select-sm select select-bordered w-full" name="mothercat" id="motherCategoryList">
+                                            <option defaultValue value={null}>Select</option>
+                                            <option value={547856}>Berkshire Option</option>
+                                        </select>
+                                    </th>
                                     <th>Wholesale</th>
                                 </tr>
                             ))}
                         </tbody>
-                        <tfoot>
-                            <tr>
+                        <tfoot >
+                            <tr className="text-xs">
                                 <th>
                                     <label>
                                         <input
@@ -221,23 +277,25 @@ const BulkEdit = () => {
                                         />
                                     </label>
                                 </th>
-                                <th>ID</th>
-                                <th>SKU</th>
-                                <th>Title</th>
-                                <th>Tags</th>
-                                <th>Reguler Price</th>
-                                <th>Sale Price</th>
-                                <th>Categories</th>
-                                <th>Status</th>
-                                <th>Price Show/Hide</th>
-                                <th>Add To Quote</th>
-                                <th>Wholesale Price</th>
+                                <th className="w-20 text-xs">ID</th>
+                                <th className="w-20 text-xs">No.</th>
+                                <th className="w-20 text-xs">SKU</th>
+                                <th className="w-28 text-xs">Title</th>
+                                <th className="w-20 text-xs">Tags</th>
+                                <th className="w-24 text-xs">Price</th>
+                                <th className="w-20 text-xs">Sale Price</th>
+                                <th className="w-52 text-xs">Categories</th>
+                                <th className="w-20 text-xs">Status</th>
+                                <th className="w-44 text-xs">Price Show/Hide</th>
+                                <th className="w-32 text-xs">Add To Quote</th>
+                                <th className="w-32 text-xs">Extra Options</th>
+                                <th className="w-40 text-xs">Wholesale Price</th>
                             </tr>
                         </tfoot>
                     </table>
                 </div>
             </div>
-            <BulkeditModal></BulkeditModal>
+            <BulkeditModal isCheck={isCheck} allProducts={allProducts} setAllProducts={setAllProducts}></BulkeditModal>
         </div>
     );
 };
