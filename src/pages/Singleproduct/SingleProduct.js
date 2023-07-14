@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import { BsHeart } from 'react-icons/bs'
 import { AiOutlineArrowRight } from 'react-icons/ai'
@@ -11,18 +11,23 @@ import OptionModal from '../../components/OptionModal/OptionModal';
 
 const SingleProduct = () => {
     const [variation, setVariation] = useState([])
-    const [optionId, setOptionId] = useState('547856')
-    console.log(variation);
-    let loading = true;
-    const { id } = useParams();
+    const [optionId, setOptionId] = useState('')
     const [product, setProduct] = useState({});
     const [similerProducts, setSimilerProducts] = useState([]);
+    const navigate = useNavigate();
+    let loading = true;
+    const { id } = useParams();
+
+    const sendQuote = () => {
+        navigate('/quotelist', { state: { variation,  product} });
+    }
 
     useEffect(() => {
         fetch(`https://berkshire-furniture.vercel.app/product/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
+                setOptionId(data.product_option);
                 fetch(`https://berkshire-furniture.vercel.app/products/${data.categories[0].id}?limit=8`)
                     .then(res => res.json())
                     .then(populerProducts => setSimilerProducts(populerProducts))
@@ -115,7 +120,8 @@ const SingleProduct = () => {
                                         <option>6</option>
                                     </select>
                                     <div className='flex basis-4/5'>
-                                        <button className='btn grow'>Add to Cart</button>
+                                        
+                                        {product?.quote ? <button onClick={()=>sendQuote()} className='btn grow'>Send Quote</button> : <button className='btn grow'>Add to Cart</button>}
                                         <button className='w-[55px] basis-[48px] ml-3'><BsHeart className='w-[48px] h-[48px] p-3 border border-[#000]'></BsHeart></button>
                                     </div>
                                 </div>

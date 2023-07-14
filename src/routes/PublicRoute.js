@@ -23,6 +23,7 @@ import Login from "../pages/LoginRegister/Login";
 import SingleProduct from "../pages/Singleproduct/SingleProduct";
 import AllProducts from "../test/AllProducts";
 import Test from "../test/Test";
+import QuoteList from "../pages/Singleproduct/QuoteList";
 
 const router = createBrowserRouter([
     {
@@ -94,6 +95,10 @@ const router = createBrowserRouter([
             {
                 path: '/product/:id',
                 element: <SingleProduct></SingleProduct>
+            },
+            {
+                path: '/quotelist',
+                element: <QuoteList></QuoteList>
             },
 
 

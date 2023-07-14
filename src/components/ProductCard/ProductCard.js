@@ -23,19 +23,20 @@ const ProductCard = ({ product }) => {
                     <img className='h-full w-auto m-auto' src={productImage} alt="Shoes" />
                 </div>
                 <div className="flex flex-col p-4 pt-0 gap-0 md:gap-2">
-                    {/* <div className='grid grid-cols-5 gap-1 mb-0 md:mb-3 h-auto md:h-12'>
+                    <div className='grid grid-cols-5 gap-1 mb-0 md:mb-3 h-auto md:h-12'>
                         {
                             product?.images.slice(0, 5).map((thumbImg, i) => <img key={i + 1} src={thumbImg?.src} className='max-w-12 max-h-12' alt='thumb-img' />)
                         }
-                    </div> */}
-                    <h2 className="mt-2 md:mt-0 text-sm md:text-base capitalize text-left justify-between items-center gap-4 tooltip" data-tip={[product?.name]}>{productName}
+                    </div>
+                    <h2 className="mt-2 md:mt-0 text-sm md:text-base capitalize text-center justify-between items-center gap-4 tooltip" data-tip={[product?.name]}>{productName}
                     </h2>
 
                     <span className='font-normal text-xs text-center md:text-left md:text-sm flex flex-col md:flex-row justify-between items-center'>{product?.categories[0]?.name}</span>
                     
                 </div>
                 <div className="card-actions p-3 justify-center md:justify-between grow items-end">
-                        <button className="btn-custom hidden md:block">Buy Now</button>
+                {product?.quote ? <button className="btn-custom hidden md:block">Send Quote</button> : <button className="btn-custom hidden md:block">Buy Now</button>}
+                        {/* <button className="btn-custom hidden md:block">Buy Now</button> */}
                         <span className='text-primary font-bold text-base mt-1 md:mt-0'>
                             ${product?.price}
                             {

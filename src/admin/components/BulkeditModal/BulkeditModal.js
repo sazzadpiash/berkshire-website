@@ -47,8 +47,26 @@ const BulkeditModal = ({ isCheck, allProducts, setAllProducts }) => {
             });
     }
 
-    const extra_product_option = () => {
-
+    const extra_product_option = (e) => {
+        fetch(`http://localhost:5000/product/bulk/edit/product_option`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productIds: isCheck, product_option: e.target.value }),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.acknowledged) {
+                    const updatedProducts = allProducts.map((product) => {
+                        if (isCheck.includes(product._id)) {
+                            return { ...product, product_option: e.target.value };
+                        }
+                        return product;
+                    });
+                    setAllProducts(updatedProducts);
+                }
+            });
     }
 
     return (
@@ -69,9 +87,9 @@ const BulkeditModal = ({ isCheck, allProducts, setAllProducts }) => {
                         <div>
                             <div className='grid grid-cols-2 mt-5'>
                                 <label className='mr-4 my-auto' htmlFor="exp_field">Extra Product Option:</label>
-                                <select className='select select-bordered' name="exp_field" id="exp_field" defaultValue="null" >
+                                <select onChange={(e) => extra_product_option(e)} className='select select-bordered' name="exp_field" id="exp_field" defaultValue="null" >
                                     <option value="null">Select</option>
-                                    <option value="234823">Handstone Product Option</option>
+                                    <option value="547856">Handstone Product Option</option>
                                     <option value="234824">Verbois Product Option</option>
                                     <option value="234825">JLM Product Option</option>
                                     <option value="234826">JB Product Option</option>

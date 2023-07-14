@@ -13,6 +13,7 @@ const BulkEdit = () => {
     const [productSkip, setProductSkip] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
     const [filterOption, setFilterOption] = useState({});
+    const [allOption, setAllOption] = useState([]);
     // adding for select
     const [isCheckAll, setIsCheckAll] = useState(false);
     const [isCheck, setIsCheck] = useState([]);
@@ -48,6 +49,15 @@ const BulkEdit = () => {
                 setAllProducts(response.data.result);
                 setProductCount(response.data.totallProduct);
                 // console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+
+        axios.get('http://localhost:5000/option/GETALL')
+            .then((response) => {
+                setAllOption(response.data)
             })
             .catch(function (error) {
                 // handle error
@@ -177,7 +187,7 @@ const BulkEdit = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto overflow-hidden p-5">
+            <div className="mx-auto overflow-hidden p-5">
                 <div className="overflow-auto h-96 rounded-lg border">
                     <table className="table table-compact table-fixed w-full">
                         <thead>
@@ -192,7 +202,6 @@ const BulkEdit = () => {
                                     </label>
                                 </th>
                                 <th className="w-20 text-xs">ID</th>
-                                {/* <th className="w-20 text-xs">No.</th> */}
                                 <th className="w-40 text-xs">SKU</th>
                                 <th className="w-56 text-xs">Title</th>
                                 <th className="w-32 text-xs">Tags</th>
@@ -202,7 +211,7 @@ const BulkEdit = () => {
                                 <th className="w-20 text-xs">Status</th>
                                 <th className="w-28 text-xs text-center">Hide Price</th>
                                 <th className="w-20 text-xs text-center">Quote</th>
-                                <th className="w-32 text-xs">Extra Options</th>
+                                <th className="w-52 text-xs">Extra Options</th>
                                 <th className="w-40 text-xs">Wholesale Price</th>
                             </tr>
                         </thead>
@@ -258,10 +267,14 @@ const BulkEdit = () => {
                                         />
                                     </th>
                                     <th className="border-r text-xs">
-                                        <select className="select-sm select select-bordered w-full" name="mothercat" id="motherCategoryList">
-                                            <option defaultValue value={null}>Select</option>
-                                            <option value={547856}>Berkshire Option</option>
-                                        </select>
+                                        {/* {console.log(allOption.map(item=>item?.option_id === singleProduct?.product_option))} */}
+                                        {/* {console.log(singleProduct?.product_option)} */}
+                                        {/* {console.log(singleProduct?.product_option === "234825")} */}
+                                        {
+                                            allOption.find(item => console.log(item.option_id === singleProduct?.product_option))
+                                        }
+                                        {/* {singleProduct?.product_option} */}
+                                        {allOption.find(item => item.option_id === singleProduct.product_option)?.option_for}
                                     </th>
                                     <th>Wholesale</th>
                                 </tr>
@@ -269,26 +282,26 @@ const BulkEdit = () => {
                         </tbody>
                         <tfoot >
                             <tr className="text-xs">
-                                <th>
+                                <th className="w-10">
                                     <label>
                                         <input
+                                            onChange={handleSelectAll}
                                             type="checkbox"
                                             className="checkbox w-4 h-4"
                                         />
                                     </label>
                                 </th>
                                 <th className="w-20 text-xs">ID</th>
-                                <th className="w-20 text-xs">No.</th>
-                                <th className="w-20 text-xs">SKU</th>
-                                <th className="w-28 text-xs">Title</th>
-                                <th className="w-20 text-xs">Tags</th>
+                                <th className="w-40 text-xs">SKU</th>
+                                <th className="w-56 text-xs">Title</th>
+                                <th className="w-32 text-xs">Tags</th>
                                 <th className="w-24 text-xs">Price</th>
                                 <th className="w-20 text-xs">Sale Price</th>
                                 <th className="w-52 text-xs">Categories</th>
                                 <th className="w-20 text-xs">Status</th>
-                                <th className="w-44 text-xs">Price Show/Hide</th>
-                                <th className="w-32 text-xs">Add To Quote</th>
-                                <th className="w-32 text-xs">Extra Options</th>
+                                <th className="w-28 text-xs text-center">Hide Price</th>
+                                <th className="w-20 text-xs text-center">Quote</th>
+                                <th className="w-52 text-xs">Extra Options</th>
                                 <th className="w-40 text-xs">Wholesale Price</th>
                             </tr>
                         </tfoot>
