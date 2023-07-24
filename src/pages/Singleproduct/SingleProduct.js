@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,8 +8,10 @@ import { AiOutlineArrowRight } from 'react-icons/ai'
 import Spinner from '../../components/Spinner/Spinner';
 import ProductCard from '../../components/ProductCard/ProductCard';
 import OptionModal from '../../components/OptionModal/OptionModal';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const SingleProduct = () => {
+    const {cart, setCart} = useContext(GlobalContext)
     const [variation, setVariation] = useState([])
     const [optionId, setOptionId] = useState('')
     const [product, setProduct] = useState({});
@@ -19,6 +21,7 @@ const SingleProduct = () => {
     const { id } = useParams();
 
     const sendQuote = () => {
+        setCart([...cart, product])
         navigate('/quotelist', { state: { variation,  product} });
     }
 
@@ -120,7 +123,6 @@ const SingleProduct = () => {
                                         <option>6</option>
                                     </select>
                                     <div className='flex basis-4/5'>
-                                        
                                         {product?.quote ? <button onClick={()=>sendQuote()} className='btn grow'>Send Quote</button> : <button className='btn grow'>Add to Cart</button>}
                                         <button className='w-[55px] basis-[48px] ml-3'><BsHeart className='w-[48px] h-[48px] p-3 border border-[#000]'></BsHeart></button>
                                     </div>

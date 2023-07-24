@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/berkshire-furniture-logo.png";
 import { FaUser } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { BsCart3 } from "react-icons/bs";
 
 const Header = () => {
+    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResult, setsearchResult] = useState([]);
     const searchOnChange = (event) => {
-        setSearchQuery(event.target.value);
+        const search = document.getElementById("searchBar");
+        navigate(`/search?search=${search.value}`)
     };
-    useEffect(() => {
-        if (searchQuery !== "") {
-            fetch(`http://localhost:5000/search?searchQuery=${searchQuery}`)
-                .then((res) => res.json())
-                .then((data) => console.log(data));
-        }
-    }, [searchQuery]);
+    // useEffect(() => {
+    //     if (searchQuery !== "") {
+    //         fetch(`https://berkshire-furniture.vercel.app/search?searchQuery=${searchQuery}`)
+    //             .then((res) => res.json())
+    //             .then((data) => console.log(data));
+    //     }
+    // }, [searchQuery]);
     return (
         <header>
             <div className="top-header px-5 mx-auto py-3 lg:p-5 pt-6 pb-0 lg:py-6  flex justify-between items-center ">
@@ -33,19 +35,16 @@ const Header = () => {
                                 <input
                                     type="text"
                                     id="searchBar"
-                                    onChange={searchOnChange}
                                     placeholder="Search…"
                                     className="searchInput input px-3 h-10 input-bordered w-full focus:outline-0 focus:border-primary"
                                 />
-                                <div className="absolute h-max bg-white w-full z-10 hidden searchResult">
+                                {/* <div className="absolute h-max bg-white w-full z-10 hidden searchResult">
                                     <ul>
                                         <li>linksd</li>
                                     </ul>
-                                </div>
+                                </div> */}
                             </form>
-                            {/* <input type="text" id='searchBar' placeholder="Search…" className="input px-3 h-10 input-bordered w-full" /> */}
-
-                            <button className="btn btn-primary text-white btn-sm h-[40px]">
+                            <button onClick={searchOnChange} className="btn btn-primary text-white btn-sm h-[40px]">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="h-4 w-4"

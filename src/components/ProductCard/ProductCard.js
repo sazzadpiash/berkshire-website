@@ -20,7 +20,7 @@ const ProductCard = ({ product }) => {
         <Link to={`/product/${product?._id}`}>
             <div className="card card-compact w-full h-full bg-[#f5f5f57d] bordered !border-[#f5f5f57d]" style={{ fontFamily: 'Poppins', }}>
                 <div className='h-32 md:h-60 p-3  overflow-hidden'>
-                    <img className='h-full w-auto m-auto' src={productImage} alt="Shoes" />
+                    <img className='h-full w-auto m-auto' src={productImage} alt={productName} />
                 </div>
                 <div className="flex flex-col p-4 pt-0 gap-0 md:gap-2">
                     <div className='grid grid-cols-5 gap-1 mb-0 md:mb-3 h-auto md:h-12'>

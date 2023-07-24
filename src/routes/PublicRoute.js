@@ -24,6 +24,7 @@ import SingleProduct from "../pages/Singleproduct/SingleProduct";
 import AllProducts from "../test/AllProducts";
 import Test from "../test/Test";
 import QuoteList from "../pages/Singleproduct/QuoteList";
+import SearchResult from "../pages/SearchResult/SearchResult";
 
 const router = createBrowserRouter([
     {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
             {
                 path: '/quotelist',
                 element: <QuoteList></QuoteList>
+            },
+            {
+                path: '/search',
+                element: <SearchResult></SearchResult>
             },
 
 

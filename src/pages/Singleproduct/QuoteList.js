@@ -1,19 +1,50 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { RxCross2 } from 'react-icons/rx';
 import { useLocation } from 'react-router-dom';
+import { GlobalContext } from '../../context/GlobalContext';
 
 const QuoteList = () => {
+    const { cart, setCart } = useContext(GlobalContext)
     const { state } = useLocation();
     const { variation, product } = state;
-    console.log(product?.images[0].src);
+    console.log(cart);
 
 
 
     return (
-        <div className='p-4'>
-            <h2 className='text-3xl mb-5 font-bold'>Request For a Quote</h2>
+        <div>
+            <div className='page-title py-20 bg-black text-white text-center text-5xl font-bold'>Request For a Quote</div>
             <div className='max-w-7xl mx-auto'>
                 <div>
-                    <div className='flex py-10 relative'>
+                    <div className="overflow-x-auto basis-4/6 mt-10 ">
+                        <table className="table w-full border rounded-xl">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Product</th>
+                                    {/* <th>Price</th> */}
+                                    {/* <th>Quantity</th>
+                                    <th>Subtotal</th> */}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cart.map((item, i) => (<tr>
+                                        <th><RxCross2></RxCross2></th>
+                                        <td className='flex items-center'>
+                                            <img src={item?.images[0]?.src} className='w-24' alt="" />
+                                            <span className='ml-5'>{item?.name}</span>
+                                        </td>
+                                        {/* <td>${item?.price}</td> */}
+                                        {/* <td><input type="text" className='border w-16 text-center px-4 py-2' /></td>
+                                        <td>$149.00</td> */}
+                                    </tr>))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <button className='btn btn-black text-sm leading-6 tracking-wide font-sans text-white mt-5 block ml-auto'>Add More Product</button>
+                    </div>
+                    {/* <div className='flex py-10 relative'>
                         <div className="productImage w-1/2 h-full sticky top-10">
                             <div>
                                 <img src={product?.images[0]?.src} alt="" />
@@ -24,7 +55,6 @@ const QuoteList = () => {
                             <p className='text-sm mb-3 mt-5'><b>SKU: </b>{product?.sku}</p>
                             <div className="border p-3 mb-5">
                                 <div className='flex gap-2'>
-                                    {/* <b className='text-sm'>Info: </b> */}
                                     <p className='text-sm' dangerouslySetInnerHTML={{ __html: product.short_description }}></p>
                                 </div>
                             </div>
@@ -44,8 +74,8 @@ const QuoteList = () => {
                                     <></>
                             }
                         </div>
-                    </div>
-                    <div className='mt-7'>
+                    </div> */}
+                    <div className='my-7'>
                         <div className='flex gap-5 mb-5'>
                             <div className='w-1/2'>
                                 <label htmlFor="firstName" className='text-sm leading-6 tracking-wide font-sans mb-2 block'>First Name*</label>

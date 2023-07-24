@@ -38,7 +38,7 @@ const BulkEdit = () => {
         setPagination(Array.from({ length: Math.ceil(productCount / 700) }, (_, i) => i + 1))
     }, [productCount])
     useEffect(() => {
-        axios.get('http://localhost:5000/bulk-edit', {
+        axios.get('https://berkshire-furniture.vercel.app/bulk-edit', {
             params: {
                 option: filterOption,
                 skip: productSkip
@@ -55,7 +55,7 @@ const BulkEdit = () => {
                 console.log(error);
             })
 
-        axios.get('http://localhost:5000/option/GETALL')
+        axios.get('https://berkshire-furniture.vercel.app/option/GETALL')
             .then((response) => {
                 setAllOption(response.data)
             })
@@ -68,7 +68,7 @@ const BulkEdit = () => {
 
     // load all mother category
     useEffect(() => {
-        fetch(`http://localhost:5000/categories/GETALL`)
+        fetch(`https://berkshire-furniture.vercel.app/categories/GETALL`)
             .then((res) => res.json())
             .then((data) => {
                 setMotherCategory(data.filter(item => item.parent === 0));
@@ -97,7 +97,7 @@ const BulkEdit = () => {
     const handleTrueFlase = (product, type, event) => {
         if (type === 'price_hide') {
             // /product/edit/price_show_hide/
-            fetch(`http://localhost:5000/product/edit/price_show_hide/${product?._id}`, {
+            fetch(`https://berkshire-furniture.vercel.app/product/edit/price_show_hide/${product?._id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const BulkEdit = () => {
         }
         if (type === 'quote') {
             // /product/edit/price_show_hide/
-            fetch(`http://localhost:5000/product/edit/quote/${product?._id}`, {
+            fetch(`https://berkshire-furniture.vercel.app/product/edit/quote/${product?._id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

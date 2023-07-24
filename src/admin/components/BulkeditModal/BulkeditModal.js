@@ -3,7 +3,7 @@ import React from 'react';
 const BulkeditModal = ({ isCheck, allProducts, setAllProducts }) => {
 
     const hidePrice = (e) => {
-        fetch(`http://localhost:5000/product/bulk/edit/price_show_hide`, {
+        fetch(`https://berkshire-furniture.vercel.app/product/bulk/edit/price_show_hide`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const BulkeditModal = ({ isCheck, allProducts, setAllProducts }) => {
             });
     }
     const quote = (e) => {
-        fetch(`http://localhost:5000/product/bulk/edit/quote`, {
+        fetch(`https://berkshire-furniture.vercel.app/product/bulk/edit/quote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ const BulkeditModal = ({ isCheck, allProducts, setAllProducts }) => {
     }
 
     const extra_product_option = (e) => {
-        fetch(`http://localhost:5000/product/bulk/edit/product_option`, {
+        fetch(`https://berkshire-furniture.vercel.app/product/bulk/edit/product_option`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
