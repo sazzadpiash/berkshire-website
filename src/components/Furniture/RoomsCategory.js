@@ -22,8 +22,8 @@ const RoomsCategory = () => {
         )
     }
     return (
-        <div className='max-w-7xl mx-auto py-10'>
-            <div className='grid grid-cols-5 gap-5'>
+        <div className='max-w-7xl mx-auto py-10 px-10'>
+            <div className='grid grid-cols-1 md:grid-cols-5 gap-5'>
                 {
                     categories.map(category => <RoomsCategoryInner category={category}></RoomsCategoryInner>)
                 }

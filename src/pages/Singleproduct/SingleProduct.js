@@ -55,8 +55,8 @@ const SingleProduct = () => {
                     <div><Spinner></Spinner></div>
                     :
                     <div>
-                        <div className='flex py-10 relative'>
-                            <div className="productImage w-1/2 h-full sticky top-10">
+                        <div className='flex py-10 relative flex-col md:flex-row'>
+                            <div className="productImage md:w-1/2 h-full md:sticky top-10 p-10 pb-0 md:p-0">
                                 <div>
                                     <ImageGallery
                                         // ref={i => this._imageGallery = i}
@@ -84,7 +84,7 @@ const SingleProduct = () => {
                                     />
                                 </div>
                             </div>
-                            <div className='w-1/2 pl-10'>
+                            <div className='md:w-1/2 p-10 md:pl-10'>
                                 <h2 className='text-3xl mb-5'>{product.name}</h2>
                                 <span className='text-xl p-2 rounded bg-gray-200'>${product.price}</span>
                                 <p className='text-sm mb-3 mt-5'><b>SKU: </b>{product?.sku}</p>
@@ -139,7 +139,7 @@ const SingleProduct = () => {
                             </div>
                         </div>
                         <h1 className='bg-gray-100 my-10 p-5 rounded text-lg'>Similer Products:</h1>
-                        <div className={`grid grid-cols-4 gap-5 mb-20`}>
+                        <div className={`grid grid-cols-1 md:grid-cols-4 gap-5 mb-20`}>
                             {
                                 similerProducts.map(similerProduct => <ProductCard key={similerProduct._id} product={similerProduct}></ProductCard>)
                             }
