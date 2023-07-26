@@ -16,7 +16,7 @@ const SearchResult = () => {
     console.log(searchProduct);
     return (
         <div>
-            <div className={`grid grid-cols-2  md:grid-cols-4 gap-5 p-10`}>
+            <div className={`grid grid-cols-1  md:grid-cols-4 gap-5 p-10`}>
                 {searchProduct.map((product) => (
                     <ProductCard
                         key={product?.wcId}
